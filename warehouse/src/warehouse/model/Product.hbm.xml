@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="warehouse.model">
+	<class name="Product" table="product">
+		<id name="id" column="id">
+			<generator class="sequence">
+				<param name="sequence">sq_product</param>
+			</generator>
+		</id>
+		<property name="productname" column="productname"></property>
+		<property name="quantity"></property>
+
+		<list name="takeout" cascade="all">
+			<key column="pro_id"  />
+			<list-index  column="index_col"></list-index>
+			<one-to-many class="warehouse.model.Takeout" />
+		</list>
+	</class>
+</hibernate-mapping>

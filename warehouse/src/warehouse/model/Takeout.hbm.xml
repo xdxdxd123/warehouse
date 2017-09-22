@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="warehouse.model">
+	<class name="Takeout" table="takeout">
+
+		<id name="id" column="id">
+			<generator class="sequence">
+				<param name="sequence">sq_takeout</param>
+			</generator>
+		</id>
+		<property name="quantity" column="quantity"></property>
+		<property name="outDate"  column="outDate"></property>
+		<property name="handler" column="handler"></property>
+		<many-to-one name="pro_id"  class="warehouse.model.Product"></many-to-one>
+	</class>
+</hibernate-mapping>
